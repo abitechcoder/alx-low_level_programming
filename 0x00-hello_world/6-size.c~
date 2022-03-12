@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+/**
+ * Main - The entry point
+ *
+ * Return: Always 0 (Success)
+ *
+ */
+
+int main(void)
+{
+	char c;
+	printf("Size of a char: %lu byte(s)",(unsigned long) sizeof(c));
+	return (0);
+}

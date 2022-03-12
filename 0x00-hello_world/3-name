@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -std=standard $CFILE -o cisfun
+gcc $CFILE -o cisfun

@@ -8,29 +8,23 @@
 
 int main(void)
 {
-	int num1;
-	int num2;
-	int num3;
+	int a, b, c;
 
-	for (num1 = 48; num1 < 58; num1++)
+	for (a = 48; a < 58; a++)
 	{
-		for (num2 = 48; num2 < 58; num2++)
+		for (b = 49; b < 58; b++)
 		{
-			if (num1 < num2)
+			for (c = 50; c < 58; c++)
 			{
-				for (num3 = 48; num3 < 58; num3++)
+				if (c > b && b > a)
 				{
-					if (num3 != num2 && num3 > num2)
+					putchar(a);
+					putchar(b);
+					putchar(c);
+					if (a != 55 || b != 56)
 					{
-						putchar(num1);
-						putchar(num2);
-						putchar(num3);
-						if (num1 == 55 && num2 == 56 && num3 == 57)
-						{
-							break;
-						}
-						putchar(44);
-						putchar(32);
+						putchar(',');
+						putchar(' ');
 					}
 				}
 			}

@@ -1,0 +1,15 @@
+/**
+ * main - prints -putchar followed by a new line
+ *
+ * Return: Always 0 (Success)
+ */
+
+int _putchar(char c);
+
+int main(void)
+{
+
+	/*char text[] = "_putchar";*/
+	_putchar('A');
+	return (0);
+}

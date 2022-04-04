@@ -1,6 +1,16 @@
-#include <stdio.h>
+#include "main.h"
 
-void _puts(char *s)
+/**
+ * puts - print a string
+ * @str: string to print
+ * Description: print a string
+ */
+
+void _puts(char *str)
 {
-	printf("Hello");
+	while (*str)
+	{
+		_putchar(*str++);
+	}
+	_putchar('\n');
 }

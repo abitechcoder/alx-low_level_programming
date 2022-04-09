@@ -9,9 +9,7 @@
 char *_strdup(char *str)
 {
 	char *s;
-	unsigned int i, j, str_len;
-
-	str_len = 0;
+	unsigned int i, j;
 
 	if (str == NULL)
 	{
@@ -20,19 +18,18 @@ char *_strdup(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		str_len += 1;
-	}
 
-	s = (char *)malloc(str_len);
+		s = (char *)malloc(sizeof(char) * (i + 1));
 
-	if (s == NULL)
-	{
-		return (NULL);
-	}
+		if (s == NULL)
+		{
+			return (NULL);
+		}
 
-	for (j = 0; j <= str_len; j++)
-	{
-		s[j] = str[j];
+		for (j = 0; j <= i; j++)
+		{
+			s[j] = str[j];
+		}
 	}
 	return (s);
 }

@@ -3,6 +3,50 @@
 #include <stdio.h>
 
 /**
+ * *concat - concatenates two strings
+ * @str1: string 1
+ * @str2: string 2
+ * @str3: pointer
+ * Return: pointer that points to a conctenated strings
+ */
+
+char *concat(char *str1, char *str2, char *str3)
+{
+	unsigned int i, j;
+
+	if (strlen(str1) == 0)
+	{
+		for (j = 0; j < strlen(str2); j++)
+		{
+			str3[j] = str2[j];
+		}
+	}
+	else if (strlen(str2) == 0)
+	{
+		for (i = 0; i < strlen(str1); i++)
+		{
+			str3[i] = str1[i];
+		}
+	}
+	else
+	{
+		for (i = 0; i < strlen(str1); i++)
+		{
+			str3[i] = str1[i];
+
+			if (i == strlen(str1) - 1)
+			{
+				for (j = 0; j < strlen(str2); j++)
+				{
+					str3[i + j + 1] = str2[j];
+				}
+			}
+		}
+	}
+	return (str3);
+}
+
+/**
  * *str_concat - concatenates two strings
  * @s1: string 1
  * @s2: string 2
@@ -12,7 +56,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *str;
-	unsigned int i, j, size;
+	unsigned int size;
 
 	if (s1 == NULL)
 	{
@@ -27,40 +71,12 @@ char *str_concat(char *s1, char *s2)
 	size = strlen(s1) + strlen(s2) + 1;
 
 	str = malloc(size);
-
 	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	if (strlen(s1) == 0)
-	{
-		for (j = 0; j < strlen(s2); j++)
-		{
-			str[j] = s2[j];
-		}
-	}
-	else if (strlen(s2) == 0)
-	{
-		for (i = 0; i < strlen(s1); i++)
-		{
-			str[i] = s1[i];
-		}
-	}
-	else
-	{
-		for (i = 0; i < strlen(s1); i++)
-		{
-			str[i] = s1[i];
+	str = concat(s1, s2, str);
 
-			if (i == strlen(s1) - 1)
-			{
-				for (j = 0; j < strlen(s2); j++)
-				{
-					str[i + j + 1] = s2[j];
-				}
-			}
-		}
-	}
 	return (str);
 }

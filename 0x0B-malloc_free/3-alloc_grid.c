@@ -17,7 +17,7 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	arr = (int **)malloc(width * sizeof(int *));
+	arr = (int **)malloc(height * sizeof(int *));
 
 	if (arr == NULL)
 	{
@@ -26,9 +26,9 @@ int **alloc_grid(int width, int height)
 	}
 
 	/* dynamically allocate memory for 2D Array  */
-	for (i = 0; i < width; i++)
+	for (i = 0; i < height; i++)
 	{
-		arr[i] = (int *)malloc(height * sizeof(int));
+		arr[i] = (int *)malloc(width * sizeof(int));
 		if (arr[i] == NULL)
 		{
 			for (i--; i >= 0; i--)
@@ -39,9 +39,9 @@ int **alloc_grid(int width, int height)
 	}
 
 	/* assign values to the allocated memory*/
-	for (i = 0; i < width; i++)
+	for (i = 0; i < height; i++)
 	{
-		for (j = 0; j < height; j++)
+		for (j = 0; j < width; j++)
 		{
 			arr[i][j] = 0;
 		}

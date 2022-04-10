@@ -9,21 +9,37 @@
 
 int **alloc_grid(int width, int height)
 {
-	int i;
+	int i, j;
 	int **arr = (int **)malloc(width * sizeof(int *));
+
+	if (arr == NULL)
+	{
+		return (NULL);
+	}
 
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
 
+	/* dynamically allocate memory for 2D Array  */
 	for (i = 0; i < width; i++)
 	{
 		arr[i] = (int *)malloc(height * sizeof(int));
+		if (arr[i] == NULL)
+		{
+			return (NULL);
+		}
 	}
-	if (arr == NULL)
+
+	/* assign values to the allocated memory*/
+	for (i = 0; i < width; i++)
 	{
-		return (NULL);
+		for (j = 0; j < height; j++)
+		{
+			arr[i][j] = 0;
+		}
 	}
+
 	return (arr);
 }

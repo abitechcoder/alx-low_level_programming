@@ -1,0 +1,52 @@
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
+
+/**
+ * print_all - prints anything
+ * @format: a list of types of arguments passed to the function
+ */
+
+void print_all(const char * const format, ...)
+{
+	unsigned int i, j;
+	char f_args[] = "cifs";
+	char *str;
+
+	va_list valist;
+
+	va_start(valist, format);
+
+	i = 0;
+	while (format[i] != '\0')
+	{
+		j = 0;
+		while (f_args[j] != '\0')
+		{
+			if (format[i] == f_args[j])
+			{
+				switch (format[i])
+				{
+				case 'c':
+					printf("%c", va_arg(valist, int));
+					break;
+				case 'i':
+					printf("%d", va_arg(valist, int));
+					break;
+				case 'f':
+					printf("%f", va_arg(valist, double));
+					break;
+				case 's':
+					str = va_arg(valist, char *);
+					if (str == NULL)
+						printf("(nil)");
+					printf("%s", str);
+					break;
+				}
+				if (i != strlen(format) - 1)
+					printf(", ");
+			} j++;
+		} i++;
+	}
+	printf("\n"), va_end(valist);
+}

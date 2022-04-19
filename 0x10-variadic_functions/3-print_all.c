@@ -9,15 +9,13 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i, j, c;
-	char f_args[] = "cifs";
-	char *str;
+	char *str, f_args[] = "cifs";
 
 	va_list valist;
 
 	va_start(valist, format);
 
-	i = 0;
-	c = 0;
+	i = 0, c = 0;
 	while (format[i] != '\0')
 	{
 		j = 0;
@@ -26,7 +24,6 @@ void print_all(const char * const format, ...)
 			if (format[i] == f_args[j] && c == 1)
 			{
 				printf(", ");
-				break;
 			} j++;
 		}
 		switch (format[i])
@@ -45,13 +42,10 @@ void print_all(const char * const format, ...)
 			if (!str)
 			{
 				printf("(nil)");
-				break;
 			}
-			c = 1;
-			printf("%s", str);
+			printf("%s", str), c = 1;
 			break;
-		}
-		i++;
+		} i++;
 	}
 	printf("\n"), va_end(valist);
 }

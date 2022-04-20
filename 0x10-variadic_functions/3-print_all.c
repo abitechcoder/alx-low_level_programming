@@ -8,14 +8,12 @@
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i, j, c;
-	char *str, f_args[] = "cifs";
-
 	va_list valist;
+	unsigned int i = 0, j, c = 0;
+	char *str;
+	const char f_args[] = "cifs";
 
 	va_start(valist, format);
-
-	i = 0, c = 0;
 	while (format[i] != '\0')
 	{
 		j = 0;

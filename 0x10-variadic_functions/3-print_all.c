@@ -22,6 +22,7 @@ void print_all(const char * const format, ...)
 			if (format[i] == f_args[j] && c == 1)
 			{
 				printf(", ");
+				break;
 			} j++;
 		}
 		switch (format[i])

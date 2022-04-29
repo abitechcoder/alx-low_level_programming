@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
  * get_str_length - function returns the length of string
@@ -30,12 +29,12 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int value, len, mylen;
 	unsigned int bit, exp;
 
+	if (b == NULL)
+		return (0);
+
 	len = get_str_length(b);
 	value = 0;
 	exp = 1;
-
-	if (b == NULL)
-		return (0);
 
 	while (len > 0)
 	{

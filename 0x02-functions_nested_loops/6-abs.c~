@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int _abs(int n)
+{
+	int value;
+
+	value = 0;
+	if (n < 0)
+	{
+		while (n < 0)
+		{
+			value += 1;
+			n++;
+		}
+		return (value);
+	}
+	return (n);
+}

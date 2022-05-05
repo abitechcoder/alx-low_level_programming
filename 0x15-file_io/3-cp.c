@@ -45,10 +45,16 @@ int main(int argc, char *argv[])
 	file_from = open(argv[1], O_RDONLY);
 	print_error(file_from, file_to, argv);
 
-	read_from = read(file_from, buf, 1024);
-	write_to = write(file_to, buf, read_from);
-	print_error(read_from, write_to, argv);
-
+	read_from = 1024;
+	while (read_from == 1024)
+	{
+		read_from = read(file_from, buf, 1024);
+		if (read_from == -1)
+			print_error(-1, 0, argv);
+		write_to = write(file_to, buf, read_from);
+		if (write_to == -1)
+			print_error(0, -1, argv);
+	}
 	close_from = close(file_from);
 	if (close_from == -1)
 	{
